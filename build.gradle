@@ -65,6 +65,10 @@ dependencies {
     implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
     implementation group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
 
+    implementation group: 'org.springframework.cloud', name: 'spring-cloud-dependencies', version: 'Greenwich.SR3', ext: 'pom'
+    implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-config', version: '2.2.2.RELEASE'
+    implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-sleuth', version: '2.2.0.RELEASE'
+
     testImplementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
     testImplementation group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'

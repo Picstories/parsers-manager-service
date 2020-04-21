@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: parsers-manager-service
+  cloud:
+    config:
+      uri: http://configuration-service:9090
+      fail-fast: true
