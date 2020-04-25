@@ -46,13 +46,6 @@ docker {
     noCache true
 }
 
-dockerRun {
-    name "picstories/parsers-manager:virusmaster"
-    image "picstories-configuration"
-    ports "7003:7003"
-    clean true
-}
-
 dependencies {
     implementation group: 'org.picstories.library', name: 'picstories-library', version: '2.0-SNAPSHOT'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-webflux', version: '2.2.5.RELEASE'
@@ -64,6 +57,7 @@ dependencies {
     implementation group: 'net.bytebuddy', name: 'byte-buddy', version: '1.10.9'
     implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
     implementation group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
+    implementation group: 'com.spikhalskiy.futurity', name: 'futurity-core', version: '0.3-RC3'
 
     implementation group: 'org.springframework.cloud', name: 'spring-cloud-dependencies', version: 'Greenwich.SR3', ext: 'pom'
     implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-config', version: '2.2.2.RELEASE'
