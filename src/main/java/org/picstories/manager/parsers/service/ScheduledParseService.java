@@ -43,7 +43,7 @@ public class ScheduledParseService {
         this.producer = producer;
     }
 
-    @Scheduled(initialDelay = 15000, fixedDelay = ONE_MINUTE * 1440)
+    @Scheduled(initialDelay = ONE_MINUTE * 10, fixedDelay = ONE_MINUTE * 1440)
     public void sendParserTaskMessage() {
         logger.info("Start produce messages to kafka in time = {}", LocalDateTime.now());
         comicsRepos
