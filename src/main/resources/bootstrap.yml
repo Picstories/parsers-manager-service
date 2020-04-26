@@ -5,3 +5,5 @@ spring:
     config:
       uri: http://configuration-service:9090
       fail-fast: true
+  profiles:
+    active: native
