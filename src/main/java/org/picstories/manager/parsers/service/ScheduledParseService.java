@@ -16,7 +16,6 @@ import reactor.kafka.sender.SenderRecord;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 /**
  * @author arman.shamenov
@@ -64,14 +63,15 @@ public class ScheduledParseService {
         String lastPageId = comic.getId() + "_" + comic.getPageCount();
         return pageRepos.findById(lastPageId)
                 .map(page -> {
-                    UUID uuid = UUID.randomUUID();
-                    ParseTask parserTaskMessage = new ParseTask(comic, page);
+                    ParseTask task = new ParseTask(comic, page);
 
-                    ProducerRecord<String, ParseTask> producerRecord = new ProducerRecord<>(topic, parserTaskMessage);
-                    return SenderRecord.create(producerRecord, "task  id = " + uuid.toString() + " with data = " + parserTaskMessage.toString());
+                    ProducerRecord<String, ParseTask> producerRecord = new ProducerRecord<>(topic, task);
+                    return SenderRecord.create(
+                            producerRecord, "task  id = " + task.getId() + " with data = " + task.toString()
+                    );
                 })
                 .doOnNext(record -> logger.info("Record = {}", record.toString()))
                 .doOnError(err -> logger.error("Error creating record ", err))
-                .take(Duration.ofSeconds(6));
+                .take(Duration.ofMinutes(5));
     }
 }

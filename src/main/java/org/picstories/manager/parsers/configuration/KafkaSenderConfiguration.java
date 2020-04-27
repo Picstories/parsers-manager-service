@@ -41,7 +41,7 @@ public class KafkaSenderConfiguration {
                 .setDaemon(false)
                 .build();
 
-        Scheduler scheduler = Schedulers.newElastic(25, threadFactory);
+        Scheduler scheduler = Schedulers.newElastic(95, threadFactory);
         SenderOptions<String, ParseTask> senderOptions = SenderOptions
                 .<String, ParseTask>create(res)
                 .maxInFlight(1024)
